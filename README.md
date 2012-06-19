@@ -8,7 +8,7 @@ gem install ruby-app
 ```
 
     $ ruby-app new_app
-    $ bundle
+    $ cd new_app && bundle
     
 Run like:
 
