@@ -50,10 +50,10 @@ dirs.each do |a|
   ActiveSupport::Dependencies::autoload_paths << a
 end
 
-#App.logger.info "started #{App.name} with env #{App.env}"
-
 # load application app
 require File.join(App.root, %w{lib application})
+
+App.logger.info "Loading #{App.name}[#{App.env}] ..."
 
 # load initializers app
 Dir["#{App.root}/config/initializers/*.rb"].each{ |x| load(x) }
