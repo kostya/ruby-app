@@ -28,6 +28,11 @@ require 'active_support/dependencies'
 require 'active_support/core_ext/numeric/time'
 require 'active_support/core_ext/object/blank'
 
+# load application app
+require File.join(App.root, %w{lib application})
+
+App.logger.info "Loading #{App.name}[#{App.env}] ..."
+
 # default config from app
 require File.join(App.root, %w{config config})
 
@@ -49,11 +54,6 @@ dirs.each do |a|
   $:.unshift(a)
   ActiveSupport::Dependencies::autoload_paths << a
 end
-
-# load application app
-require File.join(App.root, %w{lib application})
-
-App.logger.info "Loading #{App.name}[#{App.env}] ..."
 
 # load initializers app
 Dir["#{App.root}/config/initializers/*.rb"].each{ |x| load(x) }
