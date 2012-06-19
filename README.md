@@ -12,5 +12,6 @@ gem install ruby-app
     
 Run like:
 
+    $ ./bin/dummy
     $ APP_ENV=production ./bin/dummy
     
