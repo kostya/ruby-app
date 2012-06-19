@@ -41,14 +41,14 @@ end
 # unshift lib app
 $:.unshift(File.join(App.root, 'lib'))
 
+ActiveSupport::Dependencies::autoload_paths << File.join(App.root, 'lib')
+
 # unshift dirs app
 dirs = Dir[File.join(App.root, %w{app *})]
 dirs.each do |a| 
   $:.unshift(a)
-  ActiveSupport::Dependencies::autoload_paths << File.join(App.root, ['app', a])
+  ActiveSupport::Dependencies::autoload_paths << a
 end
-
-ActiveSupport::Dependencies::autoload_paths << File.join(App.root, 'lib')
 
 #App.logger.info "started #{App.name} with env #{App.env}"
 
@@ -64,7 +64,7 @@ Dir["#{App.root}/app/models/*.rb"].each{ |x| require x }
 # later controllers app
 Dir["#{App.root}/app/controllers/*.rb"].each{ |x| require x }
 
-# later all app
+# later all app from app
 dirs.each do |dir|
   Dir["#{dir}/*.rb"].each{ |x| require x }
 end
