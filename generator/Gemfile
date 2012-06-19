@@ -1,0 +1,17 @@
+source :rubygems
+
+gem 'ruby-app'
+
+
+
+
+
+group :production do
+end
+
+group :development do
+end
+
+group :test do
+  gem 'rspec'
+end

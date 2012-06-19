@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'thor/group'
+
+class RubyAppGenerator < Thor::Group
+  include Thor::Actions
+ 
+  # Define arguments and options
+  argument :name
+ 
+  def copy_tree
+    Dir["#{source_root}/**/.git*"].each{|f| cp_file f }
+    Dir["#{source_root}/**/*"].each{|f| cp_file f }
+  end
+  
+  def template_app
+    template("#{source_root}/lib/application.rb", "#{name}/lib/application.rb", true)
+  end
+  
+  def chmod_example_bin
+    chmod "#{name}/bin/dummy", 0755
+  end
+  
+private
+  def cp_file(filename)
+    if File.exists?(filename) && !File.directory?(filename)
+      return if File.basename(filename) == 'application.rb'
+      to = "#{name}#{filename.sub(source_root, '')}"
+      copy_file(filename, to)
+    end                                        
+  end
+
+  def source_root
+    File.join(File.dirname(__FILE__), %w{.. generator})
+  end            
+  
+  def self.source_root
+    File.join(File.dirname(__FILE__), %w{.. generator})
+  end
+  
+end
+
+RubyAppGenerator.start
