@@ -43,11 +43,10 @@ $:.unshift(File.join(App.root, 'lib'))
 
 # unshift dirs app
 dirs = Dir[File.join(App.root, %w{app *})]
-dirs.each{|a| $:.unshift(a) }
-
-    #[:controllers, :models, :commands].each do |a|
-    #  ActiveSupport::Dependencies::autoload_paths << "#{App.root}/app/#{a}"
-    #end
+dirs.each do |a| 
+  $:.unshift(a)
+  ActiveSupport::Dependencies::autoload_paths << File.join(App.root, ['app', a])
+end
 
 ActiveSupport::Dependencies::autoload_paths << File.join(App.root, 'lib')
 
