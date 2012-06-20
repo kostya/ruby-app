@@ -4,7 +4,7 @@ class Application
   class << self
   
     def name
-      "<%= name %>"
+      "<%= base_name %>"
     end
   end
 

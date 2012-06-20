@@ -23,6 +23,10 @@ private
     File.join(File.dirname(__FILE__), %w{.. generator})
   end
   
+  def base_name 
+    File.basename(name)
+  end
+  
 end
 
 RubyAppGenerator.start
