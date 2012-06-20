@@ -10,7 +10,9 @@ class RubyAppGenerator < Thor::Group
   argument :name
  
   def copy_tree
-    directory('./', "#{name}/")
+    directory('', "#{name}/")
+    empty_directory("#{name}/log")
+    empty_directory("#{name}/tmp")
   end
   
   def chmod_example_bin
