@@ -19,7 +19,7 @@ require File.join(local_root, 'default_config')
 # gems from app
 Bundler.require(:default, App.env.to_sym)
 
-# GC.start
+GC.start
 
 # AS dependencies
 require 'active_support/dependencies'
