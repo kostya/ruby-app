@@ -2,6 +2,6 @@
 
 require File.join(File.dirname(__FILE__), %w{.. config environment})
 
-App.logger.info "root - #{App.root}"
-App.logger.info "env - #{App.env}"
-App.logger.info "name - #{App.name}"
+App.logger.info "root: '#{App.root}'"
+App.logger.info " env: '#{App.env}'"
+App.logger.info "name: '#{App.name}'"

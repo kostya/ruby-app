@@ -31,7 +31,9 @@ require 'active_support/core_ext/object/blank'
 # load application app
 require File.join(App.root, %w{lib application})
 
-App.logger.info "Loading #{App.name}[#{App.env}] ..."
+unless defined?(Rake)
+  App.logger.info "Loading #{App.name}[#{App.env}] ..."
+end
 
 # default config from app
 require File.join(App.root, %w{config config})
