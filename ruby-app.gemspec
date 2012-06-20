@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
 
   s.authors = ["Makarchev Konstantin"]
   
-  s.description = %q{Little ruby application template. For light ruby apps (daemons, EM-apps, ...)}
+  s.description = %q{Little ruby application template. For creates light ruby apps (daemons, EventMachine-apps, ...). Supports bundler, environments, rails dirs tree.}
   s.summary = %q{Ruby application template}
 
   s.email = %q{kostya27@gmail.com}
