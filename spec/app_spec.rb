@@ -20,6 +20,10 @@ describe "RubyApp" do
       App.config.some2.should == 'bbb'
     end
     
+    it "constant - no warnings about redefine" do
+      App::BLA.should == 1
+    end
+    
     it "force set env" do
       App.env.should == 'test3'
       App.config.apps.size.should == 4
