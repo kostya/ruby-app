@@ -1,6 +1,6 @@
 *.log
 *.pid
-log/
+log/*
 !log/.gitkeep
-tmp/
+tmp/*
 !tmp/.gitkeep
