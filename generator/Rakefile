@@ -1,4 +1,4 @@
 require 'rubygems'
 require 'bundler/setup'
 
-load "ruby-app/tasks.rb"
+load "ruby-app/tasks.rake"
