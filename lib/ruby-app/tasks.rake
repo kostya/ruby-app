@@ -8,9 +8,7 @@ end
 
 # load app rakes
 if defined?(App)
-  p App.root
   Dir["#{App.root}/lib/rake_tasks/*.{rb,rake}"].each do |f|
-    p f
     load f
   end    
 end
