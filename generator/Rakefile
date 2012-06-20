@@ -1,5 +1,3 @@
-require 'rubygems'
-require 'bundler/setup'
-require File.join(File.dirname(__FILE__), %w{config environment})
+require File.join(File.dirname(__FILE__), %w{config boot})
 
 load "ruby-app/tasks.rake"

@@ -1,13 +1,11 @@
 # -*- encoding : utf-8 -*-
 
-$KCODE='u' if RUBY_VERSION < '1.9'
-
 #require 'yaml'
 
 local_root = File.dirname(__FILE__)
 
 # app from gem
-require File.join(local_root, 'application')
+require File.join(local_root, 'boot')
 
 # config from gem
 require File.join(local_root, 'common_config')
@@ -21,7 +19,7 @@ require File.join(local_root, 'default_config')
 # gems from app
 Bundler.require(:default, App.env.to_sym)
 
-GC.start
+# GC.start
 
 # AS dependencies
 require 'active_support/dependencies'
@@ -46,7 +44,7 @@ rescue LoadError
 end
 
 # unshift lib app
-$:.unshift(File.join(App.root, 'lib'))
+# $:.unshift(File.join(App.root, 'lib'))
 
 ActiveSupport::Dependencies::autoload_paths << File.join(App.root, 'lib')
 

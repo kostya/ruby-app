@@ -1,10 +1,12 @@
 
-# load gem rakes
+task :environment do
+  require File.join(App.root, %w{config environment})
+end
 
+# load gem rakes
 Dir["#{File.dirname(__FILE__)}/tasks/*.{rb,rake}"].each do |f|
   load f
 end
-
 
 # load app rakes
 if defined?(App)
