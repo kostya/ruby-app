@@ -18,7 +18,9 @@ class CommonConfig
    
   private
   
-    def method_missing(name, *params)
+    def method_missing(name, *params, &block)
+      params = block.call if block
+      
       if name.to_s =~ /_address$/i
         require 'ostruct'
         @configs[name] = OpenStruct.new(:host => params[0], :port => params[1].to_i)
