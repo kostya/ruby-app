@@ -1,6 +1,7 @@
 source :rubygems
 
 gem 'ruby-app'
+gem 'rake', :require => false
 
 
 
@@ -12,6 +13,7 @@ end
 group :development do
 end
 
-group :test do
-  gem 'rspec'
+group :test do 
+
+  gem 'rspec', '~>2'  
 end
