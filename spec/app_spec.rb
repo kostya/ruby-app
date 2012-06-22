@@ -24,6 +24,14 @@ describe "RubyApp" do
       App::BLA.should == 1
     end
     
+    it "proc in config" do
+      App.config.proc_test.should == "bbbccc"
+    end
+    
+    it "should load extensions" do
+      App.some_gem_method.should == "some gem method"
+    end
+    
     it "force set env" do
       App.env.should == 'test3'
       App.config.apps.size.should == 4

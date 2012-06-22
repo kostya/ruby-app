@@ -5,5 +5,9 @@ App.config.define :test3 do
   some2 "bbb"
   
   bla 12
+  
+  proc_test do
+    App.config.some2 + "ccc"
+  end
 
 end
