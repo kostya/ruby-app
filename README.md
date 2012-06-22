@@ -12,6 +12,6 @@ Supports bundler, environments, rails dirs tree.
     
 Run like:
 
-    $ ./bin/dummy
-    $ APP_ENV=production ./bin/dummy
+    $ ./bin/example
+    $ APP_ENV=production ./bin/example
     

@@ -1,7 +1,8 @@
 source :rubygems
 
+gem 'rake',     :require => false
 gem 'ruby-app'
-gem 'rake', :require => false
+
 
 
 
