@@ -6,7 +6,7 @@ require 'bundler/setup'
 class Application
   class << self
     def root
-      @root ||= File.join(File.dirname(__FILE__), %w(..))
+      @root ||= File.expand_path('../..', __FILE__)
     end
   end
 end
