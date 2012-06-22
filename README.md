@@ -10,7 +10,7 @@ Supports bundler, environments, rails dirs tree.
     $ ruby-app new_app
     $ cd new_app && bundle
     
-Run like:
+Run like (default env is development): 
 
     $ ./bin/example
     $ APP_ENV=production ./bin/example
