@@ -14,4 +14,9 @@ Run like:
 
     $ ./bin/example
     $ APP_ENV=production ./bin/example
+
+
+Generate app with ActiveRecord support:
+
+    $ ruby-app new_app --ar
     

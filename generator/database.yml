@@ -1,0 +1,12 @@
+development:
+  adapter:  sqlite3
+  database: <%= App.root %>/db/development.db
+
+test:
+  adapter:  sqlite3
+  database: <%= App.root %>/db/test.db
+  
+production:
+  adapter:  sqlite3
+  database: /some/path/production.db
+    

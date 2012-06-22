@@ -8,11 +8,17 @@ class RubyAppGenerator < Thor::Group
  
   # Define arguments and options
   argument :name
+  class_option :ar, :default => false
  
   def copy_tree
-    directory('', "#{name}/")
+    directory('project', "#{name}/")
     empty_directory("#{name}/log")
     empty_directory("#{name}/tmp")
+    
+    if ar
+      copy_file("database.yml", "#{name}/config/database.yml")
+      empty_directory("#{name}/db/migrate")
+    end
   end
   
   def chmod_example_bin
@@ -23,11 +29,15 @@ class RubyAppGenerator < Thor::Group
 private
 
   def self.source_root
-    File.join(File.dirname(__FILE__), %w{.. generator})
+    File.join(File.dirname(__FILE__), %w{.. generator })
   end
   
   def base_name 
     File.basename(name)
+  end
+  
+  def ar 
+    options[:ar]
   end
   
 end

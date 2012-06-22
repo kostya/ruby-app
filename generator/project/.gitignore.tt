@@ -4,3 +4,4 @@ log/*
 !log/.gitkeep
 tmp/*
 !tmp/.gitkeep
+<%= "db/schema.rb\n*.db\n*.sqlite" if ar %>

@@ -2,6 +2,10 @@ source :rubygems
 
 gem 'rake',     :require => false
 gem 'ruby-app'
+<%= "gem 'ruby-app-ar'" if ar %>
+<%= "gem 'sqlite3'" if ar %>
+
+
 
 
 
@@ -15,6 +19,5 @@ group :development do
 end
 
 group :test do 
-
   gem 'rspec', '~>2'  
 end
