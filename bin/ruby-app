@@ -17,6 +17,7 @@ class RubyAppGenerator < Thor::Group
   
   def chmod_example_bin
     chmod "#{name}/bin/dummy", 0755
+    chmod "#{name}/bin/console", 0755
   end
   
 private
