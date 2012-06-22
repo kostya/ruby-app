@@ -19,14 +19,12 @@ class CommonConfig
   private
   
     def method_missing(name, *params, &block)
-      params = block.call if block
-      
       if name.to_s =~ /_address$/i
         require 'ostruct'
-        @configs[name] = OpenStruct.new(:host => params[0], :port => params[1].to_i)
+        @configs[name] = block || OpenStruct.new(:host => params[0], :port => params[1].to_i)
       else
         params = params[0] if params.size == 1
-        @configs[name] = params
+        @configs[name] = block || params
       end
     end
   end
@@ -37,7 +35,8 @@ class CommonConfig
 
   def self.[](option)
     if @@configs.key?(option)
-      @@configs[option]
+      res = @@configs[option]
+      res.is_a?(Proc) ? res.call : res
     else
       super
     end
@@ -45,7 +44,8 @@ class CommonConfig
 
   def self.method_missing(*args)
     if @@configs.key?(args[0])
-      @@configs[args[0]]
+      res = @@configs[args[0]]
+      res.is_a?(Proc) ? res.call : res
     else
       super
     end
