@@ -36,6 +36,13 @@ end
 # default config from app
 require File.join(App.root, %w{config config})
 
+# load initializers from other gems
+unless App.initializer_paths.empty?
+  App.initializer_paths.flatten.each do |path|
+    require File.expand_path(path)
+  end
+end
+
 # configs from app for env
 begin
   require File.join(App.root, %W( config environments #{App.env}))

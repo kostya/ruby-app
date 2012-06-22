@@ -26,6 +26,18 @@ class Application
     def config
       CommonConfig
     end
+    
+    def identifier
+      "ruby-app"
+    end
+    
+    def rake_paths
+      @rake_paths ||= []
+    end
+    
+    def initializer_paths
+      @initializer_paths ||= []
+    end
   end
 end
 
