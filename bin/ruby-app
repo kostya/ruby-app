@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
+require 'thor'
 require 'thor/group'
 
-class RubyAppGenerator < Thor::Group
+class New < Thor::Group
   include Thor::Actions
- 
+  
   # Define arguments and options
   argument :name
   class_option :ar, :default => false
@@ -30,8 +31,8 @@ private
 
   def self.source_root
     File.join(File.dirname(__FILE__), %w{.. generator })
-  end
-  
+  end          
+
   def base_name 
     File.basename(name)
   end
@@ -39,7 +40,33 @@ private
   def ar 
     options[:ar]
   end
-  
+
 end
 
-RubyAppGenerator.start
+class Migration < Thor::Group
+  include Thor::Actions
+  argument :name
+  
+  def copy_migration
+    require 'active_support'
+    require 'active_support/inflector' unless ''.respond_to?(:underscore)
+  
+    template("migration.rb.tt", "./db/migrate/#{migration_name}_#{name.underscore}.rb")
+  end
+  
+  def self.source_root
+    File.join(File.dirname(__FILE__), %w{.. generator })
+  end
+  
+private
+  def migration_name
+    Time.now.utc.strftime("%Y%m%d%H%M%S")
+  end
+end
+
+class RubyApp < Thor
+  register New, :new, "new", "create new project [NAME]"
+  register Migration, :migration, "migration", "generate migration [NAME] for app with AR"
+end
+
+RubyApp.start

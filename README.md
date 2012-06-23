@@ -7,8 +7,8 @@ Supports bundler, environments, rails dirs tree.
     $ gem install ruby-app
 
 
-    $ ruby-app new_app
-    $ cd new_app && bundle
+    $ ruby-app new app
+    $ cd app && bundle
     
 Run like (default env is development): 
 
@@ -18,5 +18,5 @@ Run like (default env is development):
 
 Generate app with ActiveRecord support:
 
-    $ ruby-app new_app --ar
+    $ ruby-app new app --ar
     
