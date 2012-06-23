@@ -8,5 +8,5 @@ test:
   
 production:
   adapter:  sqlite3
-  database: /some/path/production.db
+  database: <%= App.root %>/db/production.db
     
