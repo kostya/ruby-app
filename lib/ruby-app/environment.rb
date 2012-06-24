@@ -17,8 +17,6 @@ require File.join(local_root, 'default_config')
 # gems from app
 Bundler.require(:default, App.env.to_sym)
 
-GC.start
-
 # AS dependencies
 require 'active_support/dependencies'
 require 'active_support/core_ext/numeric/time'
@@ -29,6 +27,9 @@ require File.join(App.root, %w{lib application})
 
 # require App.bundler_group if defined
 Bundler.require(App.bundler_group, "#{App.bundler_group}_#{App.env}") if App.bundler_group
+
+# for free usless data from bundler and gems
+GC.start
 
 unless defined?(Rake)
   App.logger.info "Loading #{App.name}[#{App.env}] ..."
