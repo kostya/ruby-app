@@ -56,16 +56,16 @@ dirs.each do |a|
   ActiveSupport::Dependencies::autoload_paths << a
 end
 
-# load initializers app
-Dir["#{App.root}/config/initializers/*.rb"].each{ |x| load(x) }
-
 # load initializers from other gems
 unless App.initializer_paths.empty?
   App.initializer_paths.flatten.each do |path|
     require File.expand_path(path)
   end
 end
-        
+
+# load initializers app
+Dir["#{App.root}/config/initializers/*.rb"].each{ |x| load(x) }
+
 # first load models app
 Dir["#{App.root}/app/models/*.rb"].each{ |x| require x }
 
