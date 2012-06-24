@@ -28,6 +28,10 @@ describe "RubyApp" do
       App.config.proc_test.should == "bbbccc"
     end
     
+    it "load config from file config/config.yml" do
+      App.config.file.should == :yml
+    end
+    
     it "should load extensions" do
       App.some_gem_method.should == "some gem method"
     end

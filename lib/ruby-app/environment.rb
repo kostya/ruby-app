@@ -1,7 +1,5 @@
 # -*- encoding : utf-8 -*-
 
-#require 'yaml'
-
 local_root = File.dirname(__FILE__)
 
 # app from gem
@@ -35,6 +33,9 @@ end
 
 # default config from app
 require File.join(App.root, %w{config config})
+
+# Load configs from yaml
+CommonConfig.load(File.join(App.root, %w{config config.yml}))
 
 # configs from app for env
 begin
