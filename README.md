@@ -1,7 +1,7 @@
 RubyApp
 =======
 
-Little ruby application template. For creates light ruby apps (daemons, EventMachine-apps, ...). 
+Little ruby application template. For create light ruby apps (daemons, EventMachine-apps, ...). 
 Supports bundler, environments, rails dirs tree.
 
     $ gem install ruby-app
