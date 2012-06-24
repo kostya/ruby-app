@@ -13,6 +13,8 @@ class Application
     def env
       @env ||= ENV['APP_ENV'] || ENV['RAILS_ENV'] || 'development'
     end
+    
+    alias :environment :env
 
     def logger
       @logger ||= begin
