@@ -54,9 +54,13 @@ class CommonConfig
   def self.[]=(option, value)
     @@configs[option.to_sym] = value
   end
+  
+  def self.has_key?(key)
+    @@configs.key?(key.to_sym)
+  end
 
   def self.method_missing(name, *args)
-    if @@configs.key?(name.to_sym)
+    if has_key?(name)
       res = @@configs[name.to_sym]
       res.is_a?(Proc) ? res.call : res      
     else
