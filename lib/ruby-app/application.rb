@@ -1,7 +1,9 @@
 # -*- encoding : utf-8 -*-
 
 class Application
+
   class << self
+  
     def tmp_dir
       @tmp_dir ||= File.join(root, %w{tmp})
     end
@@ -11,7 +13,20 @@ class Application
     end
 
     def env
-      @env ||= ENV['APP_ENV'] || ENV['RAILS_ENV'] || 'development'
+      @env ||= begin
+        env = ENV['APP_ENV'] || ENV['RAILS_ENV']
+        
+        # if not specify env, try find file with env config/environment.current
+        # which created this file by a capistrano, by example
+        unless env
+          path = File.join(root, %w{ config environment.current })
+          env = File.read(path) if File.exists?(path)
+        end       
+        
+        env = 'development' unless env
+        
+        env
+      end
     end
     
     alias :environment :env
@@ -40,6 +55,7 @@ class Application
     def initializer_paths
       @initializer_paths ||= []
     end
+    
   end
 end
 
