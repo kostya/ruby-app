@@ -58,6 +58,10 @@ class CommonConfig
   def self.has_key?(key)
     @@configs.key?(key.to_sym)
   end
+  
+  def self.try(method)
+    self.send(method) rescue nil
+  end
 
   def self.method_missing(name, *args)
     if has_key?(name)
@@ -66,8 +70,5 @@ class CommonConfig
     else
       super
     end
-  #rescue NoMethodError => e
-  #  Application.logger.error { "CONFIG ERROR: paramere '#{name}' not defined in config" }
-  #  defined?(IRB) ? raise(e) : exit(1)
   end
 end

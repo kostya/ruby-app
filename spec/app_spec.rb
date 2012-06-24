@@ -32,6 +32,11 @@ describe "RubyApp" do
       App.config.file.should == :yml
     end
     
+    it "safe check parameter in config" do
+      App.config.try(:file).should == :yml
+      App.config.try(:file2).should == nil
+    end
+    
     it "should load extensions" do
       App.some_gem_method.should == "some gem method"
     end
