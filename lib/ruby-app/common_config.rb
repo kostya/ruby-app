@@ -55,21 +55,15 @@ class CommonConfig
     @@configs[option.to_sym] = value
   end
 
-  def self.[](option)
-    if @@configs.key?(option.to_sym)
-      res = @@configs[option.to_sym]
-      res.is_a?(Proc) ? res.call : res
+  def self.method_missing(name, *args)
+    if @@configs.key?(name.to_sym)
+      res = @@configs[name.to_sym]
+      res.is_a?(Proc) ? res.call : res      
     else
       super
     end
-  end
-
-  def self.method_missing(*args)
-    if @@configs.key?(args[0].to_sym)
-      res = @@configs[args[0].to_sym]
-      res.is_a?(Proc) ? res.call : res
-    else
-      super
-    end
+  #rescue NoMethodError => e
+  #  Application.logger.error { "CONFIG ERROR: paramere '#{name}' not defined in config" }
+  #  defined?(IRB) ? raise(e) : exit(1)
   end
 end
