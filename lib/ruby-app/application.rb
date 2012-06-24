@@ -59,4 +59,4 @@ class Application
   end
 end
 
-A = App = Application unless defined?(App)
+App = Application unless defined?(App)
