@@ -56,6 +56,9 @@ class Application
       @initializer_paths ||= []
     end
     
+    def bundler_group
+    end
+    
   end
 end
 

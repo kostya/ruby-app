@@ -27,6 +27,9 @@ require 'active_support/core_ext/object/blank'
 # load application app
 require File.join(App.root, %w{lib application})
 
+# require App.bundler_group if defined
+Bundler.require(App.bundler_group, "#{App.bundler_group}_#{App.env}") if App.bundler_group
+
 unless defined?(Rake)
   App.logger.info "Loading #{App.name}[#{App.env}] ..."
 end
