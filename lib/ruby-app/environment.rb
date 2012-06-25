@@ -40,6 +40,7 @@ require File.join(App.root, %w{config config})
 
 # Load configs from yaml
 CommonConfig.load(File.join(App.root, %w{config config.yml}))
+CommonConfig.load(File.join(App.root, ['config', "config.yml.#{App.env}"]))
 
 # configs from app for env
 begin
