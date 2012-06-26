@@ -20,7 +20,10 @@ class Application
         # which created this file by a capistrano, by example
         unless env
           path = File.join(root, %w{ config environment.current })
-          env = File.read(path) if File.exists?(path)
+          if File.exists?(path)
+            env = File.read(path)
+            env.chomp!
+          end
         end       
         
         env = 'development' unless env
