@@ -22,7 +22,7 @@ class Application
           path = File.join(root, %w{ config environment.current })
           if File.exists?(path)
             env = File.read(path)
-            env.chomp!
+            env.strip
           end
         end       
         
