@@ -2,10 +2,10 @@
 
 class Application
   class << self
-  
+
     def name
       "<%= base_name %>"
     end
-  end
-
+    
+  end 
 end
