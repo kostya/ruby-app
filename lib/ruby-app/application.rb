@@ -36,7 +36,7 @@ class Application
 
     def logger
       @logger ||= begin
-        file = (env == 'test') ? File.open(File.join(logger_dir, 'ruby-app.log'), "a") : STDERR
+        file = (env == 'test') ? File.open(File.join(logger_dir, "#{name rescue 'ruby-app'}.log"), "a") : STDERR
         LocalLogger.new(file).tap do |l|
           l.level = App.config.log_level
         end
