@@ -62,6 +62,6 @@ module Application::Defaults
 
 end
 
-Application.extend Application::Defaults
+Application.extend(Application::Defaults)
 
 App = Application unless defined?(App)
