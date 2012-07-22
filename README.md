@@ -2,7 +2,7 @@ RubyApp
 =======
 
 Little ruby application template. For create light ruby apps (daemons, EventMachine-apps, ...). 
-Supports bundler, environments, activesupport, rails dirs tree.
+Supports bundler, environments, activesupport, rails dirs tree. Fast loading and low memory using.
 
     $ gem install ruby-app
 
