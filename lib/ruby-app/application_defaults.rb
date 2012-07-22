@@ -34,7 +34,7 @@ module Application::Defaults
 
   def logger
     @gem_logger ||= begin
-      file = (env == 'test') ? File.open(File.join(logger_dir, "#{name rescue 'ruby-app'}.log"), "a") : STDERR
+      file = env.to_s['test'] ? File.open(File.join(logger_dir, "#{name rescue 'ruby-app'}.log"), "a") : STDERR
       LocalLogger.new(file).tap do |l|
         l.level = App.config.log_level
       end

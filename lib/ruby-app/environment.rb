@@ -5,6 +5,9 @@ local_root = File.dirname(__FILE__)
 # app from gem
 require File.join(local_root, 'boot')
 
+# error mailer
+require File.join(local_root, 'error_mailer')
+
 # config from gem
 require File.join(local_root, 'common_config')
 

@@ -48,6 +48,9 @@ describe "RubyApp" do
       App.config.bla.should == 12
     end                              
     
+    it "ErrorMailer should wrap raise" do
+      Model.new.raised_method # should not raise
+    end    
   end
   
 end
