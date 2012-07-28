@@ -59,6 +59,10 @@ module Application::Defaults
   
   def bundler_group
   end
+  
+  def error_mailer
+    ErrorMailer
+  end
 
 end
 
