@@ -21,6 +21,7 @@ require File.join(local_root, 'default_config')
 Bundler.require(:default, App.env.to_sym)
 
 # AS dependencies
+# i prefer 2.seconds, or x.blank? functions by default
 require 'active_support/dependencies'
 require 'active_support/core_ext/numeric/time'
 require 'active_support/core_ext/object/blank'
