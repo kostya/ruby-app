@@ -6,9 +6,9 @@ Gem::Specification.new do |s|
   s.version = RubyApp::VERSION
 
   s.authors = ["Makarchev Konstantin"]
-  
-  s.description = %q{Little ruby application template. For create light ruby apps (daemons, EventMachine-apps, ...). Supports bundler, environments, activesupport, rails dirs tree. Fast loading and low memory using.}
-  s.summary = %q{Ruby application template}
+
+  s.description = %q{Ruby micro framework for easy create ruby appliations (daemons, EventMachine-apps, db-apps...). Features: bundler, environments, activesupport, rails dirs tree. Fast loading and low memory using.}
+  s.summary = %q{Ruby application micro framework}
 
   s.email = %q{kostya27@gmail.com}
   s.homepage = %q{http://github.com/kostya/ruby-app}
