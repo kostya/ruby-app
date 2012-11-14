@@ -1,7 +1,7 @@
 RubyApp
 =======
 
-Ruby micro framework for easy create ruby appliations (daemons, EventMachine-apps, db-apps...).
+Ruby micro framework for easy create ruby applications (daemons, EventMachine-apps, db-apps, cli...).
 Features: bundler, environments, activesupport, rails dirs tree. Fast loading and low memory using.
 
     $ gem install ruby-app

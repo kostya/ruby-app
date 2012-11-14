@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
 
   s.authors = ["Makarchev Konstantin"]
 
-  s.description = %q{Ruby micro framework for easy create ruby appliations (daemons, EventMachine-apps, db-apps...). Features: bundler, environments, activesupport, rails dirs tree. Fast loading and low memory using.}
+  s.description = %q{Ruby micro framework for easy create ruby applications (daemons, EventMachine-apps, db-apps, cli...). Features: bundler, environments, activesupport, rails dirs tree. Fast loading and low memory using.}
   s.summary = %q{Ruby application micro framework}
 
   s.email = %q{kostya27@gmail.com}
