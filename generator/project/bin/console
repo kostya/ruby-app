@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require File.join(File.dirname(__FILE__), %w{.. config environment})
+require File.expand_path(File.join(File.dirname(__FILE__), %w{.. config environment}))
 
 require 'irb'
 require 'irb/completion'

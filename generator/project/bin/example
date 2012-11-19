@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require File.join(File.dirname(__FILE__), %w{.. config environment})
+require File.expand_path(File.join(File.dirname(__FILE__), %w{.. config environment}))
 
 App.logger.info "root: '#{App.root}'"
 App.logger.info "env:  '#{App.env}'"
