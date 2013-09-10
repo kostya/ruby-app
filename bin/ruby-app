@@ -15,6 +15,11 @@ class New < Thor::Group
     directory('project', "#{name}/")
     empty_directory("#{name}/log")
     empty_directory("#{name}/tmp")
+    empty_directory("#{name}/app")
+    empty_directory("#{name}/app/models")
+    empty_directory("#{name}/app/controllers")
+    empty_directory("#{name}/config/initializers")
+    empty_directory("#{name}/lib/rake_tasks")
     
     if ar
       copy_file("database.yml", "#{name}/config/database.yml")
