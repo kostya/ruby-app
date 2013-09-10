@@ -35,10 +35,6 @@ Bundler.require(App.bundler_group, "#{App.bundler_group}_#{App.env}") if App.bun
 # for free usless data from bundler and gems
 GC.start
 
-unless defined?(Rake)
-  App.logger.info "Loading #{App.name}[#{App.env}] ..."
-end
-
 # default config from app
 require File.join(App.root, %w{config config})
 
@@ -55,6 +51,10 @@ end
 
 # unshift lib app
 # $:.unshift(File.join(App.root, 'lib'))
+
+unless defined?(Rake)
+  App.logger.info "Loading #{App.name}[#{App.env}] ..."
+end
 
 ActiveSupport::Dependencies::autoload_paths << File.join(App.root, 'lib')
 

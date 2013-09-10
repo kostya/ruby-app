@@ -33,13 +33,10 @@ module Application::Defaults
   alias :environment :env
 
   def logger
-    return @gem_logger if @gem_logger && @gem_logger_level == App.config.log_level
-
-    @gem_logger_level = App.config.log_level
-    @gem_logger = begin
+    @gem_logger ||= begin
       file = env.to_s['test'] ? File.open(File.join(logger_dir, "#{name rescue 'ruby-app'}.log"), "a") : STDERR
       LocalLogger.new(file).tap do |l|
-        l.level = @gem_logger_level
+        l.level = App.config.log_level
       end
     end
   end
