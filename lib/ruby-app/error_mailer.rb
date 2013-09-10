@@ -45,13 +45,13 @@ class ErrorMailer
     def mail_exception(e)
       exception(e)
     end
-    
+
     def safe(&block)
       yield
-    
+
     rescue => ex
       self.mail_exception(ex)
     end
   end
-  
+
 end

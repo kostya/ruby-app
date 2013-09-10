@@ -5,7 +5,7 @@ module Application::Defaults
   def tmp_dir
     @gem_tmp_dir ||= File.join(root, %w{tmp})
   end
-  
+
   def logger_dir
     @gem_logger_dir ||= File.join(root, %w{log})
   end
@@ -13,7 +13,7 @@ module Application::Defaults
   def env
     @gem_env ||= begin
       env = ENV['APP_ENV'] || ENV['RAILS_ENV']
-      
+
       # if not specify env, try find file with env config/environment.current
       # which created this file by a capistrano, by example
       unless env
@@ -22,14 +22,14 @@ module Application::Defaults
           env = File.read(path)
           env.strip!
         end
-      end       
-      
+      end
+
       env = 'development' unless env
-      
+
       env
     end
   end
-  
+
   alias :environment :env
 
   def logger
@@ -47,22 +47,22 @@ module Application::Defaults
   def config
     CommonConfig
   end
-  
+
   def identifier
     "ruby-app"
   end
-  
+
   def rake_paths
     @gem_rake_paths ||= []
   end
-  
+
   def initializer_paths
     @gem_initializer_paths ||= []
   end
-  
+
   def bundler_group
   end
-  
+
   def error_mailer
     ErrorMailer
   end

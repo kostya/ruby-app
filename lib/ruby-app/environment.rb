@@ -50,7 +50,7 @@ CommonConfig.load(File.join(App.root, ['config', "config.yml.#{App.env}"]))
 begin
   require File.join(App.root, %W( config environments #{App.env}))
 rescue LoadError
-  raise "unknown env #{App.env}"  
+  raise "unknown env #{App.env}"
 end
 
 # unshift lib app
@@ -60,7 +60,7 @@ ActiveSupport::Dependencies::autoload_paths << File.join(App.root, 'lib')
 
 # unshift dirs app
 dirs = Dir[File.join(App.root, %w{app *})]
-dirs.each do |a| 
+dirs.each do |a|
   $:.unshift(a)
   ActiveSupport::Dependencies::autoload_paths << a
 end

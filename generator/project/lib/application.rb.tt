@@ -6,6 +6,6 @@ class Application
     def name
       "<%= base_name %>"
     end
-    
-  end 
+
+  end
 end
