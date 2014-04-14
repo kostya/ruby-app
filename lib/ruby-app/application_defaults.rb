@@ -64,6 +64,10 @@ module Application::Defaults
     ErrorMailer
   end
 
+  def revision
+    @_revision ||= File.read(File.join(root, %w[.. REVISION]))[0..5] rescue nil
+  end
+
 end
 
 Application.extend(Application::Defaults)
