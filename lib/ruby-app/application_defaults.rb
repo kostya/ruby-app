@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 
+$app_started_at = Time.now
+
 module Application::Defaults
 
   def tmp_dir
@@ -58,6 +60,10 @@ module Application::Defaults
   end
 
   def bundler_group
+  end
+
+  def started_at
+    $app_started_at
   end
 
   def error_mailer
