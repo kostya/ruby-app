@@ -81,7 +81,3 @@ Dir["#{App.root}/app/models/*.rb"].each{ |x| require x }
 # later controllers app
 Dir["#{App.root}/app/controllers/*.rb"].each{ |x| require x }
 
-# later all app from app
-dirs.each do |dir|
-  Dir["#{dir}/*.rb"].each{ |x| require x }
-end
