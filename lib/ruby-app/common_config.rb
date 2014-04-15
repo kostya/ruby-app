@@ -1,5 +1,17 @@
 # -*- encoding : utf-8 -*-
 
+class RubyAppAddress
+  attr_accessor :host, :port
+  def initialize(host, port)
+    @host = host
+    @port = port
+  end
+
+  def to_s
+    "#{host}:#{port}"
+  end
+end
+
 class CommonConfig
   @@configs = {}
 
@@ -42,8 +54,7 @@ class CommonConfig
 
     def method_missing(name, *params, &block)
       if name.to_s =~ /_address$/i
-        require 'ostruct'
-        @configs[name.to_sym] = block || OpenStruct.new(:host => params[0], :port => params[1].to_i)
+        @configs[name.to_sym] = block || RubyAppAddress.new(params[0], params[1].to_s)
       else
         params = params[0] if params.size == 1
         @configs[name.to_sym] = block || params
