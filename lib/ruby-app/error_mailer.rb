@@ -4,27 +4,27 @@ class ErrorMailer
 end
 
 module ErrorMailer::BlankSlate
-  def message(msg)
+  def message(msg, params = nil)
   end
 
-  def exception(e)
+  def exception(e, params = nil)
   end
 end
 
 module ErrorMailer::Logger
-  def message(msg)
+  def message(msg, params = nil)
     super
     App.logger.error { msg }
   end
 
-  def exception(e)
+  def exception(e, params = nil)
     super
     App.logger.error{ "#{e.class}: #{e.message}\n#{e.backtrace*"\n"}" }
   end
 end
 
 module ErrorMailer::ReraiseCtrlC
-  def exception(e)
+  def exception(e, params = nil)
     if SignalException === e || SystemExit === e
       raise e
     end
@@ -38,19 +38,19 @@ class ErrorMailer
     include ErrorMailer::Logger
     include ErrorMailer::ReraiseCtrlC
 
-    def mail_message(m)
+    def mail_message(m, params = nil)
       message(m)
     end
 
-    def mail_exception(e)
-      exception(e)
+    def mail_exception(e, params = nil)
+      exception(e, params)
     end
 
-    def safe(&block)
+    def safe(params = nil, &block)
       yield
 
-    rescue => ex
-      self.mail_exception(ex)
+    rescue Object => ex
+      self.mail_exception(ex, params)
     end
   end
 
