@@ -71,9 +71,12 @@ module Application::Defaults
   end
 
   def revision
-    @_revision ||= File.read(File.join(root, %w[.. REVISION]))[0..5] rescue nil
+    @_revision ||= File.read(File.join(root, %w[REVISION]))[0..5] rescue nil
   end
 
+  def hostname
+    @_hostname ||= `hostname`.chop
+  end
 end
 
 Application.extend(Application::Defaults)
