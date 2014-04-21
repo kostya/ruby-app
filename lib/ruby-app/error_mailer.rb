@@ -19,7 +19,7 @@ module ErrorMailer::Logger
 
   def exception(e, params = nil)
     super
-    App.logger.error{ "#{e.class}: #{e.message}\n#{e.backtrace*"\n"}" }
+    App.logger.error{ "#{e.class}: #{e.message}\n#{(e.backtrace || []) * "\n"}" }
   end
 end
 
