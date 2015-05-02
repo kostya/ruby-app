@@ -3,5 +3,6 @@ require File.expand_path(File.join(File.dirname(__FILE__), %w{.. config environm
 
 require 'irb'
 require 'irb/completion'
+require 'pp'
 
 IRB.start
