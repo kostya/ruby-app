@@ -3,6 +3,6 @@
 App.config.define :production do
 
   # Set log level for App.logger
-  log_level Logger::WARN
+  log_level Logger::INFO
 
 end
