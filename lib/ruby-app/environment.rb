@@ -73,11 +73,11 @@ unless App.initializer_paths.empty?
 end
 
 # load initializers app
-Dir["#{App.root}/config/initializers/*.rb"].each{ |x| load(x) }
+Dir["#{App.root}/config/initializers/**/*.rb"].each{ |x| load(x) }
 
 # first load models app
-Dir["#{App.root}/app/models/*.rb"].each{ |x| require x }
+Dir["#{App.root}/app/models/**/*.rb"].each{ |x| require x }
 
 # later controllers app
-Dir["#{App.root}/app/controllers/*.rb"].each{ |x| require x }
+Dir["#{App.root}/app/controllers/**/*.rb"].each{ |x| require x }
 
